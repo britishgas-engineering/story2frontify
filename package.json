@@ -1,6 +1,6 @@
 {
   "name": "story2frontify",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "build/index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/britishgas-engineering/story2frontify#readme",
   "dependencies": {
     "@frontify/frontify-api": "^0.3.1",
+    "babel-runtime": "^6.26.0",
     "delete": "^1.1.0",
     "minimist": "^1.2.0",
     "puppeteer": "^1.6.0",
