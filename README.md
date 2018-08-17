@@ -1,5 +1,7 @@
 # Story2frontify
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/britishgas-engineering/story2frontify.svg)](https://greenkeeper.io/)
+
 > This is currently alpha. Not every scenario has been looked into. If you find something, please raise an issue or PR.
 
 ## About
