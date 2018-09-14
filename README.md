@@ -62,7 +62,7 @@ Pass the arguments:
 
 Each story needs to have a `div` wrapper around.
 
-Currently to decide if your stories are an `atom`, `molecules` or `organisms`, you need to have a  a `type` attribute in the first (primary) story.
+Currently to decide if your stories are an `atom`, `molecules`, `organisms`, `page` or `template` you need to have a  a `type` attribute in the first (primary) story.
 
 ```
 return ('<div type="atom"><button>Click me</button></div>');

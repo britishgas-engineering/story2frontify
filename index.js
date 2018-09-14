@@ -62,7 +62,7 @@ const getHTML = async (browser, url) => {
   const html = await page.$eval('#root div', e => e.innerHTML);
   const type = await page.$eval('#root div', e => e.getAttribute('type'));
 
-  const isType = type && type === 'atom' || type === 'molecules' || type === 'organisms' || type === null;
+  const isType = type && type === 'atom' || type === 'molecules' || type === 'organisms' || type === 'page' || type === 'template' || type === null;
 
   if (!isType) {
     errors = 'Pattern type does not follow the atomic principles.';
