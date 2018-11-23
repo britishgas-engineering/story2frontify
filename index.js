@@ -62,11 +62,13 @@ const getHTML = async (browser, url) => {
   const html = await page.$eval('#root div', e => e.innerHTML);
   const type = await page.$eval('#root div', e => e.getAttribute('type'));
 
-  const isType = type && type === 'atom' || type === 'molecules' || type === 'organisms' || type === 'page' || type === 'template' || type === null;
+  const isType = type && type === 'atom' || type === 'molecule' || type === 'organism' || type === 'page' || type === 'template' || type === null;
 
   if (!isType) {
-    errors = 'Pattern type does not follow the atomic principles.';
+    errors = `Pattern type does not follow the atomic principles. (${url})`;
   }
+
+  await page.close();
 
   return {
     html,
@@ -81,11 +83,14 @@ const getStorybook = async (browser, url) => {
     waitUntil: 'networkidle2'
   });
 
-  return page.evaluate('__STORYBOOK_CLIENT_API__.getStorybook()');
+  const stories = await page.evaluate('__STORYBOOK_CLIENT_API__.getStorybook()');
+  await page.close();
+
+  return stories;
 };
 
 const getPage = async (browser, kind, name) => {
-  const url = `${localhost}?selectedKind=${kind}&selectedStory=${name}`;
+  const url = `${localhost}?selectedKind=${kind}&selectedStory=${name}`.replace(/ /g, '%20');
 
   return await getHTML(browser, url);
 };
